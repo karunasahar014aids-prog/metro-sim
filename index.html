@@ -1,1 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Indian Metro Simulator 3D</title>
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<canvas id="c"></canvas>
+<div id="load">Loading 3D engine…</div>
 
+<div id="hud" class="hide">
+  <div class="box" id="b1"><div id="spd">0</div><span>km/h</span>
+    <div>Limit <b id="lim">80</b></div><div id="stat">Stopped</div><div>Doors <b id="door">Closed</b></div></div>
+  <div class="box" id="b2">
+    <div>Now <b id="cur">-</b></div><div>Next <b id="nxt">-</b></div><div>Distance <b id="dist">0 m</b></div>
+    <div class="bar"><i id="prog"></i></div>
+    <div>Passengers <b id="pax">0</b></div><div>Score <b id="score">0</b> <small id="pen"></small></div><small id="mode"></small></div>
+  <div id="msg"></div>
+  <div id="touch">
+    <div class="g"><button data-h="brake">BRAKE</button><button data-h="em" class="red">EMERGENCY</button></div>
+    <div class="g"><button data-c="open">OPEN</button><button data-c="close">CLOSE</button><button data-c="cam">CAM</button><button data-c="light">LIGHT</button><button data-c="pause">PAUSE</button></div>
+    <div class="g"><button data-h="acc" class="grn">ACCEL</button></div>
+  </div>
+</div>
+
+<div class="menu" id="main">
+  <h1>Indian Metro<br>Simulator 3D</h1>
+  <p>Drive a fictional Chennai-inspired line across five stations.</p>
+  <button id="bPlay">Play Game</button>
+  <button id="bSet1">Settings</button>
+  <small>W/Up accelerate · S/Down brake · Space emergency · E open · Q close · C camera · H lights · A/D look · P pause</small>
+</div>
+
+<div class="menu hide" id="modes">
+  <h2>Select Game Mode</h2>
+  <button class="mode sel" data-m="service">Passenger Service<small>Stop accurately, obey limits, run on time</small></button>
+  <button class="mode" data-m="challenge">Station-to-Station Challenge<small>Tighter schedule, double points</small></button>
+  <button class="mode" data-m="free">Free Drive<small>No scoring, no hold at stations</small></button>
+  <div class="row"><button class="tog sel" data-n="0">Day</button><button class="tog" data-n="1">Night</button></div>
+  <button id="bStart">Start Journey</button><button id="bBack">Back</button>
+</div>
+
+<div class="menu hide" id="pause">
+  <h2 id="ptitle">Paused</h2><p id="ptext"></p>
+  <button id="bRes">Resume</button><button id="bRest">Restart</button><button id="bSet2">Settings</button><button id="bMenu">Main Menu</button>
+</div>
+
+<div class="menu hide" id="settings">
+  <h2>Settings</h2>
+  <label><input type="checkbox" id="sSound" checked> Sound and announcements</label>
+  <label><input type="checkbox" id="sNight"> Night mode</label>
+  <label><input type="checkbox" id="sShadow" checked> Shadows (turn off for slower phones)</label>
+  <label>Camera <select id="sCam"><option value="0">Driver cabin</option><option value="1">Front</option><option value="2">Third-person</option><option value="3">Side-follow</option><option value="4">Overhead</option></select></label>
+  <button id="bSetX">Close</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="game.js"></script>
+</body></html>
